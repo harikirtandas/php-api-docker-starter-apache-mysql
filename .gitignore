@@ -1,0 +1,4 @@
+.env
+src/vendor/
+dumps/
+.DS_Store

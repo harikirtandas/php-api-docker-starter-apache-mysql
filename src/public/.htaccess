@@ -1,0 +1,21 @@
+Options -Indexes
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Apache descarta el header Authorization antes de que PHP lo vea (pasa con
+    # CGI/FastCGI y a veces con mod_php). Lo reinyectamos como variable de
+    # entorno para que App\Core\Request::bearerToken() lo encuentre.
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # archivos y directorios que existen se sirven tal cual: index.html, css/, js/
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # todo lo demas (las rutas /api/...) al front controller: App\Core\Router
+    # resuelve desde ahi. Esta regla es el corazon del esquema, no es borrable.
+    RewriteRule ^ index.php [L]
+</IfModule>

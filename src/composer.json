@@ -1,0 +1,13 @@
+{
+    "name": "harikirtandas/php-api-docker-starter-apache-mysql",
+    "description": "Esqueleto de API REST en PHP plano, sin framework: router propio con verbos HTTP, respuestas JSON, auth por token y CORS",
+    "type": "project",
+    "require": {
+        "php": ">=8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
