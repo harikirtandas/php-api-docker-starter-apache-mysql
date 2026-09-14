@@ -19,7 +19,7 @@ respuesta JSON, **CORS** y **autenticacion por token**.
 ## Crear un proyecto nuevo desde este template
 
 ```bash
-gh repo create mi-api --template TU_USUARIO/php-api-docker-starter-apache-mysql --private --clone
+gh repo create mi-api --template harikirtandas/php-api-docker-starter-apache-mysql --private --clone
 cd mi-api
 make install
 ```
@@ -241,7 +241,7 @@ sumar una tabla a un proyecto con datos ya cargados:
 
 ## Arrancar un proyecto real
 
-1. `gh repo create mi-api --template TU_USUARIO/php-api-docker-starter-apache-mysql --private --clone && cd mi-api`
+1. `gh repo create mi-api --template harikirtandas/php-api-docker-starter-apache-mysql --private --clone && cd mi-api`
 2. Reemplazar `docker/mysql/init/01-schema.sql` por el schema real.
 3. Borrar el slice demo: `Ping`/`Auth`/`Nota` en `Controllers/` y `Models/` (Auth
    solo si el proyecto no usa login; si lo usa, adaptar `Usuario`/`Token` a las
